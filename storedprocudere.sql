@@ -1,21 +1,21 @@
 DELIMITTER //
 CREATE PROCEDURE Getir()
 BEGIN
---SQL KODLARÝ BEGIN ARASINA YAZILIR	SELECT * FROM TABLE personel-
+--SQL KODLARÄ° BEGIN ARASINA YAZILIR	SELECT * FROM TABLE personel-
 END//
 DELIMITTER ;
 
 
 CALL Getir()
--- personel tablosunda ki tüm verileri getirecektir
+-- personel tablosunda ki tÃ¼m verileri getirecektir
 
 STORED PROCEDURE TOPLAMA/CARPMA/BOLME
---CALÝSANLARIN MAASLARÝNA 100TL EKLEME
--- EKLEDÝGÝNÝZ PARAMETLERÝN VERÝ TÝPLERÝ TABLONUZDAKÝ VERÝ TÝPLERÝ ÝLE AYNI OLMASI LAZIM
--- AKSÝ TAKÝDRDE SORUN ÇIKARTABÝLÝR
+--CALÄ°SANLARIN MAASLARÄ°NA 100TL EKLEME
+-- EKLEDÄ°GÄ°NÄ°Z PARAMETLERÄ°N VERÄ° TÄ°PLERÄ° TABLONUZDAKÄ° VERÄ° TÄ°PLERÄ° Ä°LE AYNI OLMASI LAZIM
+-- AKSÄ° TAKÄ°DRDE SORUN Ã‡IKARTABÄ°LÄ°R
 
 DELIMITTER //
-CREATE PROCEDURE Ekle(ÝN maasi int(11),ÝN idisi int(11))
+CREATE PROCEDURE Ekle(Ä°N maasi int(11),Ä°N idisi int(11))
 BEGIN
 
 UPDATE personle SET maas = maasi WHERE id =idisi;
@@ -25,9 +25,9 @@ DELIMITTER ;
 CALL Ekle(100)
 
 
-STORED PROCEDUR ÝLE EKLEME YAPMA
---Yazdýgýn Parametrelerin veri tipleri tablonuzda ki veri tipleri ile ayný olmasý gerekmektedir
---aksi takdirde sorunlarla karþýlaþabilirsiniz
+STORED PROCEDUR Ä°LE EKLEME YAPMA
+--YazdÄ±gÄ±n Parametrelerin veri tipleri tablonuzda ki veri tipleri ile aynÄ± olmasÄ± gerekmektedir
+--aksi takdirde sorunlarla karÅŸÄ±laÅŸabilirsiniz
 
 DELIMITTER //
 CREATE PROCEDURE EKLEME (IN adi varchar(255), IN soyadi varchar(255), IN telefonu varchar(12), IN emaili varchar(50))
@@ -37,15 +37,15 @@ END//
 DELIMITTER ;
 
 
-CALL EKLEME(Paramtere Degerleri GÝrilecek)
+CALL EKLEME(Paramtere Degerleri GÄ°rilecek)
 
 
-STORED PROCEDURE ÝLE GÜNCELLEMEYAPMA
---Yazdýgýn Parametrelerin veri tipleri tablonuzda ki veri tipleri ile ayný olmasý gerekmektedir
---aksi takdirde sorunlarla karþýlaþabilirsiniz
+STORED PROCEDURE Ä°LE GÃœNCELLEMEYAPMA
+--YazdÄ±gÄ±n Parametrelerin veri tipleri tablonuzda ki veri tipleri ile aynÄ± olmasÄ± gerekmektedir
+--aksi takdirde sorunlarla karÅŸÄ±laÅŸabilirsiniz
 
 DELIMITER //
-CREATE PROCEDURE Güncelleme(IN adi varchar(255), IN soyadi varchar(255), IN telefonu varchar(12), IN emaili varchar(50),IN idi mediumint(8))
+CREATE PROCEDURE GÃ¼ncelleme(IN adi varchar(255), IN soyadi varchar(255), IN telefonu varchar(12), IN emaili varchar(50),IN idi mediumint(8))
 BEGIN
 
 UPDATE storedprocedure SET ad = adi AND soyad = soyadi AND  telefon = telefonu AND  mail = emaili WHERE id = idi;
@@ -53,17 +53,30 @@ UPDATE storedprocedure SET ad = adi AND soyad = soyadi AND  telefon = telefonu A
 END//
 DELIMITER ; 
 
-STORED PROCEDURE SÝLME
---Yazdýgýn Parametrelerin veri tipleri tablonuzda ki veri tipleri ile ayný olmasý gerekmektedir
---aksi takdirde sorunlarla karþýlaþabilirsiniz
+STORED PROCEDURE SÄ°LME
+--YazdÄ±gÄ±n Parametrelerin veri tipleri tablonuzda ki veri tipleri ile aynÄ± olmasÄ± gerekmektedir
+--aksi takdirde sorunlarla karÅŸÄ±laÅŸabilirsiniz
 
 DELIMITER //
-CREATE PROCEDURE SÝL(ÝN idisi int(11))
+CREATE PROCEDURE SÄ°L(Ä°N idisi int(11))
 BEGIN
 	DELETE FROM tabloismi where id = idisi;  
 
 END//
 DELIMITER ;
 
-CALL EKLEME(1)'1,ci Ýd'yi Siler'
+CALL EKLEME(1)'1,ci Ä°d'yi Siler'
+
+STORED PROCEDURE DEGÄ°SÄ°KLÄ°K Ä°CÄ°N
+DELIMITER //
+ALTER PROCEDURE SÄ°L(DEGÄ°STÄ°RÄ°LMEK Ä°STENÄ°LEN ALANLAR)
+BEGIN
+	DEGÄ°STÄ°RÄ°LMEK Ä°STENÄ°LEN ALANLAR 
+
+END//
+DELIMITER ;
+
+STORED PROCEDURE SÄ°LMEK Ä°CÄ°N
+
+DROP OLUSTURDUGUNUZ PROCEDUR ADI
 
